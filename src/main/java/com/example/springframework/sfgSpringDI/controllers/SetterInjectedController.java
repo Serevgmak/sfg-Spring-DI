@@ -25,4 +25,10 @@ public class SetterInjectedController {
 		this.greetingService = greetingService;
 	}
 
+//	@Qualifier("primaryGreetingService")
+//	@Autowired
+//	public void setGreetingService(GreetingService greetingService) {
+//		this.greetingService = greetingService;
+//	}
+
 }
