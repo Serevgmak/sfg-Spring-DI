@@ -11,6 +11,8 @@ import com.example.springframework.sfgSpringDI.controllers.MyControllerWithPrope
 import com.example.springframework.sfgSpringDI.controllers.PetController;
 import com.example.springframework.sfgSpringDI.controllers.PropertyInjectedController;
 import com.example.springframework.sfgSpringDI.controllers.SetterInjectedController;
+import com.example.springframework.sfgSpringDI.services.PrototypeBean;
+import com.example.springframework.sfgSpringDI.services.SingletonBean;
 
 // By default Spring Component Scan search Bean Stereotype Annotations
 // inside main package, but with this annotation below
@@ -54,6 +56,22 @@ public class SfgSpringDiApplication {
 		MyControllerWithProperty myControllerWithProperty = (MyControllerWithProperty) ctx
 				.getBean("myControllerWithProperty");
 		System.out.println(myControllerWithProperty.getGreeting());
+
+		System.out.println("\n-----------Bean Scopes-----------------");
+		SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getMyScope());
+		SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean2.getMyScope());
+		SingletonBean singletonBean3 = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean3.getMyScope());
+
+		PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getMyScope());
+		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getMyScope());
+		PrototypeBean prototypeBean3 = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean3.getMyScope());
+
 	}
 
 }
