@@ -15,9 +15,9 @@ public class SetterInjectedController {
 		return greetingService.sayGreeting();
 	}
 
-	public GreetingService getGreetingService() {
-		return greetingService;
-	}
+//	public GreetingService getGreetingService() {
+//		return greetingService;
+//	}
 
 	@Qualifier("setterInjectedGreetingService")
 	@Autowired

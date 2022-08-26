@@ -7,6 +7,11 @@ public class MyGreetingServiceWithProperty implements GreetingService {
 
 	private String stringToAdd = "";
 
+//	public MyGreetingServiceWithProperty(String stringToAdd) {
+//		super();
+//		this.stringToAdd = stringToAdd;
+//	}
+
 	public void setStringToAdd(String stringToAdd) {
 		this.stringToAdd = stringToAdd;
 	}
