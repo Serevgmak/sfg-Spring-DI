@@ -2,6 +2,7 @@ package com.example.springframework.sfgSpringDI.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
@@ -16,6 +17,7 @@ import com.example.springframework.sfgSpringDI.services.PrimaryGreetingService;
 import com.example.springframework.sfgSpringDI.services.PropertyInjectedGreetingService;
 import com.example.springframework.sfgSpringDI.services.SetterInjectedGreetingService;
 
+@ImportResource("classpath:sfgSpringDIConfig.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -59,7 +61,8 @@ public class GreetingServiceConfig {
 		return new PrimaryGreetingService();
 	}
 
-	@Bean
+	// That bean will be configuered in xml config file
+	// @Bean
 	ConstructorGreetingService constructorGreetingService() {
 		return new ConstructorGreetingService();
 	}
