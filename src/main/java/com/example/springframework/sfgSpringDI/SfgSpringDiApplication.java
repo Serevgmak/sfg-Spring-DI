@@ -3,7 +3,6 @@ package com.example.springframework.sfgSpringDI;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 import com.example.springframework.sfgSpringDI.controllers.ConstructorInjectedController;
 import com.example.springframework.sfgSpringDI.controllers.I18nController;
@@ -17,7 +16,7 @@ import com.example.springframework.sfgSpringDI.controllers.SetterInjectedControl
 // inside main package, but with this annotation below
 // we can show him where to search beans
 
-@ComponentScan(basePackages = { "com.example.springframework.sfgSpringDI", "com.example.pets" })
+//@ComponentScan(basePackages = { "com.example.springframework.sfgSpringDI", "com.example.pets" })
 @SpringBootApplication
 public class SfgSpringDiApplication {
 

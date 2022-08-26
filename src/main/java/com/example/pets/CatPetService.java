@@ -1,10 +1,7 @@
 package com.example.pets;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
-
-@Service
-@Profile({ "cat", "default" })
+//@Service
+//@Profile({ "cat", "default" })
 public class CatPetService implements PetService {
 
 	@Override

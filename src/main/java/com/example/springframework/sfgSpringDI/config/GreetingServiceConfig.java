@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
+import com.example.pets.PetService;
+import com.example.pets.PetServiceFactory;
 import com.example.springframework.sfgSpringDI.repositories.EnglishGreetingRepository;
 import com.example.springframework.sfgSpringDI.repositories.EnglishGreetingRepositoryImpl;
 import com.example.springframework.sfgSpringDI.services.ConstructorGreetingService;
@@ -16,6 +18,23 @@ import com.example.springframework.sfgSpringDI.services.SetterInjectedGreetingSe
 
 @Configuration
 public class GreetingServiceConfig {
+
+	@Bean
+	PetServiceFactory petServiceFactory() {
+		return new PetServiceFactory();
+	}
+
+	@Profile("dog")
+	@Bean
+	PetService dogPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("dog");
+	}
+
+	@Profile({ "cat", "default" })
+	@Bean
+	PetService catPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("cat");
+	}
 
 	@Profile("ES")
 	@Bean("i18nService") // name of the Bean
