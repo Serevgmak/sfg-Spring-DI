@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 
 import com.example.pets.PetService;
 import com.example.pets.PetServiceFactory;
@@ -20,7 +19,7 @@ import com.example.springframework.sfgSpringDI.services.PrimaryGreetingService;
 import com.example.springframework.sfgSpringDI.services.PropertyInjectedGreetingService;
 import com.example.springframework.sfgSpringDI.services.SetterInjectedGreetingService;
 
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgSpringDIConfig.xml")
 @Configuration
 public class GreetingServiceConfig {
