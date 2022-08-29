@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.example.springframework.sfgSpringDI.config.SFGConfiguration;
 import com.example.springframework.sfgSpringDI.controllers.ConstructorInjectedController;
 import com.example.springframework.sfgSpringDI.controllers.I18nController;
 import com.example.springframework.sfgSpringDI.controllers.MyController;
@@ -77,6 +78,12 @@ public class SfgSpringDiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("--------Config Prop Bean------------");
+		SFGConfiguration sfgConfiguration = ctx.getBean(SFGConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcurl());
 
 	}
 

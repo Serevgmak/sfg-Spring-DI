@@ -1,7 +1,21 @@
 spring:
   profiles:
-    active: dog, EN, devyml
+    active: 
+      - dog
+      - EN
+      - prod
 guru:
   username: YMLUsername
   password: YMLPassword
-  jdbcurl: YMLJDBCUrl
+  jdbcurl: YMLJDBCUrl    
+guruguru:
+  username: YMLUsernameGURUGURU
+  password: YMLPasswordGURUGURU
+  jdbcurl: YMLJDBCUrlGURUGURU
+---
+spring:
+  profiles: prod
+guru:
+  username: YMLUsernameProd
+  password: YMLPasswordProd
+  jdbcurl: YMLJDBCUrlProd
