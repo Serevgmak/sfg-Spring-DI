@@ -1,5 +1,6 @@
 package com.example.springframework.sfgSpringDI.config;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -19,6 +20,7 @@ import com.example.springframework.sfgSpringDI.services.PropertyInjectedGreeting
 import com.example.springframework.sfgSpringDI.services.SetterInjectedGreetingService;
 
 //@PropertySource("classpath:datasource.properties")
+@EnableConfigurationProperties(ConstructorConfig.class)
 @ImportResource("classpath:sfgSpringDIConfig.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -36,14 +38,27 @@ public class GreetingServiceConfig {
 //
 //	}
 
-	@Bean
-	FakeDataSource fakeDataSource(SFGConfiguration sfgConfiguration) {
+//	@Bean  //Not very good choice, use Constructor Binding instead
+//	FakeDataSource fakeDataSource(SFGConfiguration sfgConfiguration) {
+//
+//		FakeDataSource fakeDataSource = new FakeDataSource();
+//
+//		fakeDataSource.setUsername(sfgConfiguration.getUsername());
+//		fakeDataSource.setPassword(sfgConfiguration.getPassword());
+//		fakeDataSource.setJdbcurl(sfgConfiguration.getJdbcurl());
+//
+//		return fakeDataSource;
+//
+//	}
+
+	@Bean // Better choice because properties are immutable that way
+	FakeDataSource fakeDataSource(ConstructorConfig constructorConfig) {
 
 		FakeDataSource fakeDataSource = new FakeDataSource();
 
-		fakeDataSource.setUsername(sfgConfiguration.getUsername());
-		fakeDataSource.setPassword(sfgConfiguration.getPassword());
-		fakeDataSource.setJdbcurl(sfgConfiguration.getJdbcurl());
+		fakeDataSource.setUsername(constructorConfig.getUsername());
+		fakeDataSource.setPassword(constructorConfig.getPassword());
+		fakeDataSource.setJdbcurl(constructorConfig.getJdbcurl());
 
 		return fakeDataSource;
 
