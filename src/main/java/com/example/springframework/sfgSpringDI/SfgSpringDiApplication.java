@@ -11,6 +11,7 @@ import com.example.springframework.sfgSpringDI.controllers.MyControllerWithPrope
 import com.example.springframework.sfgSpringDI.controllers.PetController;
 import com.example.springframework.sfgSpringDI.controllers.PropertyInjectedController;
 import com.example.springframework.sfgSpringDI.controllers.SetterInjectedController;
+import com.example.springframework.sfgSpringDI.datasource.FakeDataSource;
 import com.example.springframework.sfgSpringDI.services.PrototypeBean;
 import com.example.springframework.sfgSpringDI.services.SingletonBean;
 
@@ -71,6 +72,11 @@ public class SfgSpringDiApplication {
 		System.out.println(prototypeBean2.getMyScope());
 		PrototypeBean prototypeBean3 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean3.getMyScope());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 
 	}
 
